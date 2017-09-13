@@ -1,5 +1,5 @@
 class Pet
-  @@main_pet
+  @@main_pet =[]
   attr_accessor(:name, :food_level, :sleep_level, :activity_level, :last_update, :main_pet)
   def initialize(name)
     @name = name

@@ -7,10 +7,11 @@ get('/') do
   @output_string ="Tell us what you'd like to name your pet?"
   erb(:index)
 end
-
 post('/') do
-  temp = params["name"]
-  @@main_pet = Pet.new(temp)
+  if @@main_pet == []
+    temp = params["name"]
+    @@main_pet = Pet.new(temp)
+  end
   erb(:pet_page)
 end
 post('/feed') do
