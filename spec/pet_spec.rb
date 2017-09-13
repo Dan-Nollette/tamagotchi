@@ -54,7 +54,7 @@ describe(Pet) do
       expect(my_pet.pet_status()).to(eq(["hungry", "kinda sleepy", "a little winded"]))
     end
   end
-  describe("#pet_status") do
+  describe("#update_pet") do
     it("compares the current time to the last time it was updated and changes your pet accordingly") do
       my_pet = Pet.new("lil dragon")
       my_pet.last_update= (my_pet.last_update - Time.at(60))

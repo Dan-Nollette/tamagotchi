@@ -1,5 +1,6 @@
 class Pet
-  attr_accessor(:name, :food_level, :sleep_level, :activity_level, :last_update)
+  @@main_pet
+  attr_accessor(:name, :food_level, :sleep_level, :activity_level, :last_update, :main_pet)
   def initialize(name)
     @name = name
     @food_level = 10
@@ -15,10 +16,10 @@ class Pet
     @sleep_level -= 1
   end
   def update_pet
-    (((Time.new - @last_update).to_i)/15).times do
+    (((Time.new - @last_update).to_i)/5).times do
       time_passes
     end
-    # @last_update = Time.new
+    @last_update = Time.new
   end
   # def please_master
   # end
@@ -47,5 +48,14 @@ class Pet
       activity_string = "all worn out"
     end
     status_array = [food_string, sleep_string, activity_string]
+  end
+
+  def feed
+    update_pet
+    @food_level = 10
+  end
+  def sleep
+    update_pet
+    @sleep_level = 10
   end
 end
